@@ -3,8 +3,9 @@
 
 """Module for defining various view functions for the Blogger Flask App."""
 
-from flask import render_template
+from flask import render_template, redirect, flash, url_for
 from blog import app
+from blog.forms import LoginForm
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -25,3 +26,13 @@ def index():
         }
     ]
     return render_template('index.html', user=user, posts=posts)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Login page view function"""
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash("Login successful for user {}".format(form.username.data))
+        return redirect(url_for('index'))
+    return render_template('login.html', title="Login", form=form)
