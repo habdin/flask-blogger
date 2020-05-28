@@ -2,9 +2,13 @@
 
 {% block content %}
 
-<h1>Hi, {{ user.first_name }}!</h1>
+  {% if current_user.first_name %}
+    <h1>Hi, {{ current_user.first_name }}!</h1>
+  {% else %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+  {% endif %}
   {% for post in posts %}
-  <p>{{ post.author.first_name }} says: <b>{{ post.body }}</b></p>
+    <p>{{ post.author.first_name }} says: <b>{{ post.body }}</b></p>
   {% endfor %}
 
 {% endblock content %}
