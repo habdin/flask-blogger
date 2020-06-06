@@ -13,8 +13,9 @@ from blog.forms import (
     RegistrationForm,
     EditUserProfileForm,
     EmptyForm,
+    PostForm,
 )
-from blog.models import User
+from blog.models import User, Post
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,19 +23,23 @@ from blog.models import User
 @login_required
 def index():
     """Home page view function"""
-    # Fake user and posts to be removed when true elements of their kinds
-    # in the app are created.
-    posts = [
-        {
-            'author': {'username': 'habdin', 'first_name': "Hassan"},
-            'body': 'I hope you like your visit to Egypt.'
-        },
-        {
-            'author': {'username': 'jdoe', 'first_name': 'John'},
-            'body': 'The weather in Cairo is nice today.'
-        }
-    ]
-    return render_template('index.html', title="Home Page", posts=posts)
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live')
+        return redirect(url_for('index'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('index', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('index.html', title="Home Page", form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -83,12 +88,16 @@ def register():
 def user(username):
     """User Profile view function"""
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
+    page = request.args.get('page', 1, type=int)
+    posts = user.posts.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('user', username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('user', username=user.username, page=posts.prev_num) \
+        if posts.has_prev else None
     form = EmptyForm()
-    return render_template('user.html', user=user, posts=posts, form=form)
+    return render_template('user.html', user=user, posts=posts.items, form=form,
+                           next_url=next_url, prev_url=prev_url)
 
 
 @app.before_request
@@ -117,6 +126,7 @@ def edit_profile():
     return render_template('edit_profile.html', title='Edit Profile',
                            form=form)
 
+
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
 def follow(username):
@@ -137,6 +147,7 @@ def follow(username):
     else:
         return redirect(url_for('index'))
 
+
 @app.route('/unfollow/<username>', methods=['POST'])
 @login_required
 def unfollow(username):
@@ -156,3 +167,20 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
+
+
+@app.route('/explore')
+@login_required
+def explore():
+    """View function to show posts from all users. It allows users to see
+    posts from non-followed with the possibility of following new users,
+    thereby."""
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('explore', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('explore', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('index.html', title="Explore", posts=posts.items,
+                           next_url=next_url, prev_url=prev_url)

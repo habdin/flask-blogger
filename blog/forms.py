@@ -79,3 +79,10 @@ class EditUserProfileForm(FlaskForm):
 class EmptyForm(FlaskForm):
     """Empty form for follow and unfollow users."""
     submit = SubmitField('Submit')
+
+
+class PostForm(FlaskForm):
+    """Class that defines fields for making new post from a registered user"""
+    post = TextAreaField('New Post',
+                         validators=[DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Submit')

@@ -41,7 +41,7 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-    
+
     def __repr__(self):
         """Defines how new user instance is represented for debugging"""
         return '<User {}>'.format(self.username)
@@ -83,11 +83,11 @@ class User(UserMixin, db.Model):
 
     def followed_posts(self):
         """Returns the posts for followed users of a certain user and
-        his (her) own posts in a defined ordered method."""
+        his (her) own posts in a defined ordered manner."""
         followed = Post.query.join(
             followers, (followers.c.followed_id == Post.user_id)).filter(
                 followers.c.follower_id == self.id)
-        own = Post.query.filter_by(user_id = self.id)
+        own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
 
 
