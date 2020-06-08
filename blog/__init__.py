@@ -10,6 +10,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
 from config import Config
 
 # Initiate the Flask app object
@@ -25,6 +26,9 @@ migrate = Migrate(app, db)
 # Register Flask Login with Blogger Flask App
 login = LoginManager(app)
 login.login_view = 'login'
+
+# Register Flask-Mail with Blogger Flask App
+mail = Mail(app)
 
 if not app.debug:
     # Implement a mail handler for production environment if a mail server
