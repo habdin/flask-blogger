@@ -83,9 +83,9 @@ class EmptyForm(FlaskForm):
 
 class PostForm(FlaskForm):
     """Class that defines fields for making new post from a registered user"""
-    post = TextAreaField('New Post',
+    post = TextAreaField('Create Post',
                          validators=[DataRequired(), Length(min=1, max=140)])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Post')
 
 
 class ResetPasswordRequestForm(FlaskForm):

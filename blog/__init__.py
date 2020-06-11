@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 from config import Config
 
 # Initiate the Flask app object
@@ -29,6 +30,9 @@ login.login_view = 'login'
 
 # Register Flask-Mail with Blogger Flask App
 mail = Mail(app)
+
+# Register Flask-Bootstrap with Blogger Flask App
+bootstrap = Bootstrap(app)
 
 if not app.debug:
     # Implement a mail handler for production environment if a mail server

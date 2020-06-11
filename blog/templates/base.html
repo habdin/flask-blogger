@@ -1,37 +1,55 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    {% if title %}
-    <title>Blogger - {{ title }}</title>
-    {% else %}
-    <title>Welcome to Blogger</title>
-    {% endif %}
-  </head>
-  <body>
-    <div>
-      Blogger: 
-      <a href="{{ url_for('index') }}">Home</a>
-      {% if current_user.is_anonymous %}
-      <a href="{{ url_for('login') }}">Login</a>
-      <a href="{{ url_for('register') }}">Register</a>
-      {% else %}
-      <a href="{{ url_for('explore') }}">Explore</a>
-      <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-      <a href="{{ url_for('logout') }}">Logout</a>
-      {% endif %}
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+{% if title %} Blogger - {{ title }} {% else %} Welcome to Blogger {% endif %}
+{% endblock title %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand mr-4" href="{{ url_for('index') }}">Blogger</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#blogger-navbar-collapse"
+      aria-expanded="false"
+      aria-controls="blogger-navbar-collapse"
+      aria-label="Toggle-navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="blogger-navbar-collapse" class="collapse navbar-collapse">
+      <div class="navbar-nav mr-auto">
+        <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
+        <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+      </div>
+      <div class="navbar-nav">
+        {% if current_user.is_anonymous %}
+        <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+        <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+        {% else %}
+	<a class="nav-item nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+      </div>
     </div>
-    <hr>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-    {% block content %}{% endblock content %}
-  </body>
-</html>
+  </div>
+</nav>
+{% endblock navbar %}
+
+{% block content %}
+<div class="container mt-4">
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-info" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  {% block app_content %}{% endblock app_content %}
+</div>
+{% endblock content %}
