@@ -12,6 +12,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 from config import Config
 
 # Initiate the Flask app object
@@ -33,6 +34,9 @@ mail = Mail(app)
 
 # Register Flask-Bootstrap with Blogger Flask App
 bootstrap = Bootstrap(app)
+
+# Register Flask-Moment with Blogger Flask App
+moment = Moment(app)
 
 if not app.debug:
     # Implement a mail handler for production environment if a mail server
