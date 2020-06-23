@@ -8,6 +8,7 @@ notifications and many other conditions."""
 from threading import Thread
 from flask import render_template
 from flask_mail import Message
+from flask_babel import _
 from blog import mail, app
 
 
@@ -33,7 +34,7 @@ def send_password_reset_email(user):
     """Function that sends password reset email with a password reset token to 
     the user requesting password reset."""
     token = user.get_reset_password_token()
-    send_email('[Blogger] Reset Your Password',
+    send_email(_('[Blogger] Reset Your Password'),
                sender=app.config['ADMINS'][0],
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',

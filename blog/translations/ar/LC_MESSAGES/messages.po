@@ -1,0 +1,257 @@
+# Arabic translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-06-18 23:50+0200\n"
+"PO-Revision-Date: 2020-06-18 23:15+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: blog/__init__.py:32
+msgid "Please log in to access this page."
+msgstr "برجاء تسجيل الدخول لبلوغ الصفحة المطلوبة"
+
+#: blog/email.py:37
+msgid "[Blogger] Reset Your Password"
+msgstr "أعد تعيين كلمة السر الخاصة بك على موقع بلوجر"
+
+#: blog/forms.py:27 blog/forms.py:37 blog/forms.py:62
+msgid "Username"
+msgstr "إسم المستخدم"
+
+#: blog/forms.py:28 blog/forms.py:39 blog/forms.py:104
+msgid "Password"
+msgstr "كلمة السر"
+
+#: blog/forms.py:30
+msgid "Remember Me"
+msgstr "تذكرني"
+
+#: blog/forms.py:31 blog/routes.py:65 blog/templates/base.html:29
+#: blog/templates/login.html:6
+msgid "Login"
+msgstr "سجل الدخول"
+
+#: blog/forms.py:38 blog/forms.py:96
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: blog/forms.py:42 blog/forms.py:105
+msgid "Confirm Password"
+msgstr "أكد كلمة السر"
+
+#: blog/forms.py:44 blog/routes.py:88 blog/templates/base.html:30
+#: blog/templates/register.html:6
+msgid "Register"
+msgstr "تسجيل مستخدم جديد"
+
+#: blog/forms.py:50
+msgid "Please choose another username"
+msgstr "برجاء إختيار إسم مستخدم آخر"
+
+#: blog/forms.py:56
+msgid "Please choose another email address"
+msgstr "برجاء إختيار بريد إلكتروني آخر"
+
+#: blog/forms.py:63
+msgid "About Me"
+msgstr "معلوماتي عني"
+
+#: blog/forms.py:64
+msgid "Submit"
+msgstr "قم بالإرسال"
+
+#: blog/forms.py:77
+msgid "Please use a different username"
+msgstr "من فضلك إستخدم إسم مستخدم مختلف"
+
+#: blog/forms.py:87
+msgid "Create Post"
+msgstr "أنشئ مشاركة جديدة"
+
+#: blog/forms.py:89
+msgid "Post"
+msgstr "إنشر"
+
+#: blog/forms.py:97 blog/forms.py:108
+msgid "Request Password Reset"
+msgstr "طلب إعادة تعيين كلمة السر"
+
+#: blog/routes.py:35
+msgid "Your post is now live"
+msgstr "مشاركتك تم نشرها"
+
+#: blog/routes.py:44 blog/templates/base.html:24
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: blog/routes.py:58
+msgid "Invalid username or password"
+msgstr "إسم المستخدم غير صحيح أو كلمة السر خاطئة"
+
+#: blog/routes.py:86
+msgid "Congratulations, you are now a registered user"
+msgstr "تهانئنا، لقد قمت بالتسجيل كمستخدم جديد بنجاح"
+
+#: blog/routes.py:126
+msgid "Your changes have been saved"
+msgstr "تم حفظ التغييرات التي قمت بها"
+
+#: blog/routes.py:131 blog/templates/edit_profile.html:6
+msgid "Edit Profile"
+msgstr "عدل الملف الشخصي"
+
+#: blog/routes.py:143 blog/routes.py:164
+#, python-format
+msgid "User %(username)s not found"
+msgstr "المستخدم %(username)s غير موجود"
+
+#: blog/routes.py:146
+msgid "You cannot follow yourself"
+msgstr "لا يمكنك متابعة نفسك"
+
+#: blog/routes.py:150
+#, python-format
+msgid "You are following %(username)s"
+msgstr "أنت الآن تتابع %(username)s"
+
+#: blog/routes.py:167
+msgid "You cannot unfollow yourself"
+msgstr "لا يمكنك ألغاء متابعة نفسك"
+
+#: blog/routes.py:171
+#, python-format
+msgid "You are not following %(username)s"
+msgstr "أنت الآن لا تتابع %(username)s"
+
+#: blog/routes.py:190 blog/templates/base.html:25
+msgid "Explore"
+msgstr "تصفح"
+
+#: blog/routes.py:206
+msgid "Check your email for instructions to reset your password."
+msgstr ""
+"قم بمراجعة الرسالة المرسلة إلى بريدك الإلكتروني و بها التعليمات الخاصة "
+"بإعادة تعيين كلمة السر الخاصة بك."
+
+#: blog/routes.py:209 blog/templates/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "أعد تعيين كلمة السر"
+
+#: blog/routes.py:224
+msgid "Your password has been reset."
+msgstr "لقد تم إعادة تعيين كلمة السر الخاصة بك"
+
+#: blog/templates/404.html:5
+msgid "File Not Found"
+msgstr "الملف غير موجود"
+
+#: blog/templates/404.html:6 blog/templates/500.html:7
+msgid "Back"
+msgstr "عودة للصفحة السابقة"
+
+#: blog/templates/500.html:5
+msgid "An unexpected error has occurred"
+msgstr "لقد حدث خطأ غير متوقع."
+
+#: blog/templates/500.html:6
+msgid " The administrator has been notified. Sorry for the inconvenience. "
+msgstr "لقد تم إخطار المدير المسؤول عن الموقع. نأسف للإزعاج"
+
+#: blog/templates/_post.html:14
+#, python-format
+msgid "%(username)s"
+msgstr ""
+
+#: blog/templates/_post.html:15
+msgid "said"
+msgstr "قال"
+
+#: blog/templates/_post.html:15
+#, python-format
+msgid "%(when)s"
+msgstr ""
+
+#: blog/templates/base.html:4
+msgid "Welcome to Blogger"
+msgstr "مرحباً بك في موقع بلوجر"
+
+#: blog/templates/base.html:32
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: blog/templates/base.html:33
+msgid "Logout"
+msgstr "سجل الخروج"
+
+#: blog/templates/index.html:7 blog/templates/index.html:9
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr "أهلاً، %(username)s"
+
+#: blog/templates/index.html:28 blog/templates/user.html:47
+msgid "Newer"
+msgstr "الأحدث"
+
+#: blog/templates/index.html:33 blog/templates/user.html:52
+msgid "Older"
+msgstr "الأقدم"
+
+#: blog/templates/login.html:12
+msgid "New User?"
+msgstr "مستخدم جديد؟"
+
+#: blog/templates/login.html:12
+msgid "Click to Register"
+msgstr "انقر لتسجيل كمستخدم جديد"
+
+#: blog/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "أنسيت كلمة السر الخاصة بك؟"
+
+#: blog/templates/login.html:15
+msgid "Click to Reset"
+msgstr "انقر لإعادة تعيين كلمة السر"
+
+#: blog/templates/user.html:10
+msgid "User"
+msgstr "المستخدم"
+
+#: blog/templates/user.html:13
+msgid "Last seen on"
+msgstr "شوهد مؤخراً"
+
+#: blog/templates/user.html:17
+#, python-format
+msgid "%(count)d followers"
+msgstr "عدد %(count)d متابع"
+
+#: blog/templates/user.html:18
+#, python-format
+msgid "%(count)d following"
+msgstr "عدد %(count)d متبع"
+
+#: blog/templates/user.html:20
+msgid "Edit your Profile"
+msgstr "عدل ملفك الشخصي"
+
+#: blog/templates/user.html:25
+msgid "Follow"
+msgstr "تابع"
+
+#: blog/templates/user.html:32
+msgid "unfollow"
+msgstr "إلغ متابعة"
+

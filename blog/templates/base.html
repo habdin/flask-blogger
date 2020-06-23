@@ -1,7 +1,7 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block title %}
-{% if title %} Blogger - {{ title }} {% else %} Welcome to Blogger {% endif %}
+{% if title %} Blogger - {{ title }} {% else %} {{ _('Welcome to Blogger') }}  {% endif %}
 {% endblock title %}
 
 {% block navbar %}
@@ -21,16 +21,17 @@
 
     <div id="blogger-navbar-collapse" class="collapse navbar-collapse">
       <div class="navbar-nav mr-auto">
-        <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
-        <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+        <a class="nav-item nav-link" href="{{ url_for('index') }}">{{ _('Home') }}</a>
+        <a class="nav-link" href="{{ url_for('explore') }}">{{ _('Explore') }}</a>
       </div>
       <div class="navbar-nav">
         {% if current_user.is_anonymous %}
-        <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-        <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+        <a class="nav-item nav-link" href="{{ url_for('login') }}">{{ _('Login') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('register') }}">{{ _('Register') }}</a>
         {% else %}
-	<a class="nav-item nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+	<a class="nav-item nav-link" href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
+
         {% endif %}
       </div>
     </div>
@@ -55,6 +56,7 @@
 {% endblock content %}
 
 {% block scripts %}
-  {{ super() }}
-  {{ moment.include_moment() }}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.lang(g.locale) }}
 {% endblock scripts %}

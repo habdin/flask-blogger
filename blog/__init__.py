@@ -6,13 +6,14 @@
 import logging
 import os
 from logging.handlers import SMTPHandler, RotatingFileHandler
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_babel import Babel, lazy_gettext as _l
 from config import Config
 
 # Initiate the Flask app object
@@ -28,6 +29,7 @@ migrate = Migrate(app, db)
 # Register Flask Login with Blogger Flask App
 login = LoginManager(app)
 login.login_view = 'login'
+login.login_message = _l('Please log in to access this page.')
 
 # Register Flask-Mail with Blogger Flask App
 mail = Mail(app)
@@ -37,6 +39,17 @@ bootstrap = Bootstrap(app)
 
 # Register Flask-Moment with Blogger Flask App
 moment = Moment(app)
+
+# Register Flask-Babel with Blogger Flask App
+babel = Babel(app)
+
+
+@babel.localeselector
+def get_locale():
+    """Returns a language locale to translate Blogger App to from a predefined
+    language list (mostly in the App configuration setting)."""
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 if not app.debug:
     # Implement a mail handler for production environment if a mail server

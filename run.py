@@ -3,7 +3,7 @@
 
 """Blogger Flask App runner module"""
 
-from blog import app, db
+from blog import app, db, cli
 from blog.models import User, Post
 
 
