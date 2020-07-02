@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-18 23:50+0200\n"
+"POT-Creation-Date: 2020-07-02 02:42+0200\n"
 "PO-Revision-Date: 2020-06-18 23:15+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ar\n"
@@ -39,7 +39,7 @@ msgstr "كلمة السر"
 msgid "Remember Me"
 msgstr "تذكرني"
 
-#: blog/forms.py:31 blog/routes.py:65 blog/templates/base.html:29
+#: blog/forms.py:31 blog/routes.py:71 blog/templates/base.html:29
 #: blog/templates/login.html:6
 msgid "Login"
 msgstr "سجل الدخول"
@@ -52,7 +52,7 @@ msgstr "البريد الإلكتروني"
 msgid "Confirm Password"
 msgstr "أكد كلمة السر"
 
-#: blog/forms.py:44 blog/routes.py:88 blog/templates/base.html:30
+#: blog/forms.py:44 blog/routes.py:94 blog/templates/base.html:30
 #: blog/templates/register.html:6
 msgid "Register"
 msgstr "تسجيل مستخدم جديد"
@@ -89,70 +89,78 @@ msgstr "إنشر"
 msgid "Request Password Reset"
 msgstr "طلب إعادة تعيين كلمة السر"
 
-#: blog/routes.py:35
+#: blog/routes.py:41
 msgid "Your post is now live"
 msgstr "مشاركتك تم نشرها"
 
-#: blog/routes.py:44 blog/templates/base.html:24
+#: blog/routes.py:50 blog/templates/base.html:24
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
-#: blog/routes.py:58
+#: blog/routes.py:64
 msgid "Invalid username or password"
 msgstr "إسم المستخدم غير صحيح أو كلمة السر خاطئة"
 
-#: blog/routes.py:86
+#: blog/routes.py:92
 msgid "Congratulations, you are now a registered user"
 msgstr "تهانئنا، لقد قمت بالتسجيل كمستخدم جديد بنجاح"
 
-#: blog/routes.py:126
+#: blog/routes.py:132
 msgid "Your changes have been saved"
 msgstr "تم حفظ التغييرات التي قمت بها"
 
-#: blog/routes.py:131 blog/templates/edit_profile.html:6
+#: blog/routes.py:137 blog/templates/edit_profile.html:6
 msgid "Edit Profile"
 msgstr "عدل الملف الشخصي"
 
-#: blog/routes.py:143 blog/routes.py:164
+#: blog/routes.py:149 blog/routes.py:170
 #, python-format
 msgid "User %(username)s not found"
 msgstr "المستخدم %(username)s غير موجود"
 
-#: blog/routes.py:146
+#: blog/routes.py:152
 msgid "You cannot follow yourself"
 msgstr "لا يمكنك متابعة نفسك"
 
-#: blog/routes.py:150
+#: blog/routes.py:156
 #, python-format
 msgid "You are following %(username)s"
 msgstr "أنت الآن تتابع %(username)s"
 
-#: blog/routes.py:167
+#: blog/routes.py:173
 msgid "You cannot unfollow yourself"
 msgstr "لا يمكنك ألغاء متابعة نفسك"
 
-#: blog/routes.py:171
+#: blog/routes.py:177
 #, python-format
 msgid "You are not following %(username)s"
 msgstr "أنت الآن لا تتابع %(username)s"
 
-#: blog/routes.py:190 blog/templates/base.html:25
+#: blog/routes.py:196 blog/templates/base.html:25
 msgid "Explore"
 msgstr "تصفح"
 
-#: blog/routes.py:206
+#: blog/routes.py:212
 msgid "Check your email for instructions to reset your password."
 msgstr ""
 "قم بمراجعة الرسالة المرسلة إلى بريدك الإلكتروني و بها التعليمات الخاصة "
 "بإعادة تعيين كلمة السر الخاصة بك."
 
-#: blog/routes.py:209 blog/templates/reset_password_request.html:6
+#: blog/routes.py:215 blog/templates/reset_password_request.html:6
 msgid "Reset Password"
 msgstr "أعد تعيين كلمة السر"
 
-#: blog/routes.py:224
+#: blog/routes.py:230
 msgid "Your password has been reset."
 msgstr "لقد تم إعادة تعيين كلمة السر الخاصة بك"
+
+#: blog/translate.py:19
+msgid "Error: The translation key is not configured."
+msgstr "خطأ: المفتاح الخاص بخدمة الترجمة لم يتم تعريفه"
+
+#: blog/translate.py:40
+msgid "Error: The translation service failed."
+msgstr "خطأ: خدمة الترجمة لم تنجح"
 
 #: blog/templates/404.html:5
 msgid "File Not Found"
@@ -184,6 +192,10 @@ msgstr "قال"
 msgid "%(when)s"
 msgstr ""
 
+#: blog/templates/_post.html:28
+msgid "Translate"
+msgstr "قم بالترجمة"
+
 #: blog/templates/base.html:4
 msgid "Welcome to Blogger"
 msgstr "مرحباً بك في موقع بلوجر"
@@ -195,6 +207,10 @@ msgstr "الملف الشخصي"
 #: blog/templates/base.html:33
 msgid "Logout"
 msgstr "سجل الخروج"
+
+#: blog/templates/base.html:71
+msgid "Error: Could not contact server."
+msgstr "خطأ: لا يمكن الإتصال بالخادم المختص بالخدمة"
 
 #: blog/templates/index.html:7 blog/templates/index.html:9
 #, python-format

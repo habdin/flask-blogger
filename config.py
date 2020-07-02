@@ -32,3 +32,5 @@ class Config(object):
     # Localization and Internationalization
     LANGUAGES = ['en', 'ar']
     
+    # MS Translator azure service key
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')

@@ -14,7 +14,20 @@
       {{ _('%(username)s', username=user_link) }}
       {{ _('said') }}  <span class="text-muted">{{ _('%(when)s', when=moment(post.timestamp).fromNow()) }}</span>
       <br>
-      {{ post.body }}
+      <span id="post{{ post.id }}">
+	{{ post.body }}
+      </span>
+      {% if post.language and post.language != g.locale %}
+      <br>
+      <br>
+      <span id="translation{{ post.id }}">
+	<a href="javascript:translate(
+		 '#post{{ post.id }}',
+		 '#translation{{ post.id }}',
+		 '{{ g.locale }}',
+		 );">{{ _('Translate') }}</a>
+      </span>
+      {% endif %}
     </td>
   </tr>
 </table>
