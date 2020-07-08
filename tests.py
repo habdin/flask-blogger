@@ -5,21 +5,29 @@
 
 from datetime import datetime, timedelta
 import unittest
-from blog import app, db
+from blog import create_app, db
 from blog.models import User, Post
+from config import Config
 
+class TestConfig(Config):
+    """Testing Class"""
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 class UserModelCase(unittest.TestCase):
     """Tests for User Model methods"""
 
     def setUp(self):
         """Checks the proper creation of the models on App startup."""
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
 
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def test_password_hashing(self):
         u = User(username='susan')

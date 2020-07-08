@@ -4,8 +4,9 @@
 """Configurator module for Blogger Flask App."""
 
 import os
+from dotenv import load_dotenv
 basedir = os.path.abspath(os.path.dirname(__file__))
-
+load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
     """Define settings and variables for various Blogger App extensions"""

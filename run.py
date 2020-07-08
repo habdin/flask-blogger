@@ -3,8 +3,12 @@
 
 """Blogger Flask App runner module"""
 
-from blog import app, db, cli
+from blog import create_app, db, cli
 from blog.models import User, Post
+
+
+app = create_app()
+cli.register(app)
 
 
 @app.shell_context_processor

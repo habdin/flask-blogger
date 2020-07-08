@@ -6,12 +6,13 @@ different database tables for Blogger Flask App"""
 
 
 from time import time
-import jwt
 from datetime import datetime
 from hashlib import md5
+import jwt
+from flask import current_app
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from blog import db, login, app
+from blog import db, login
 
 
 @login.user_loader
@@ -99,14 +100,16 @@ class User(UserMixin, db.Model):
         """
         return jwt.encode(
             {'reset_password': self.id, 'exp': time() + expires_in},
-            app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+            current_app.config['SECRET_KEY'],
+            algorithm='HS256').decode('utf-8')
 
     @staticmethod
     def verify_reset_password_token(token):
         """Checks the validity of the reset password request token and returns
         the user id for valid token."""
         try:
-            id = jwt.decode(token, app.config['SECRET_KEY'],
+            id = jwt.decode(token,
+                            current_app.config['SECRET_KEY'],
                             algorithms=['HS256'])['reset_password']
         except:
             return

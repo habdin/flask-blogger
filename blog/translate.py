@@ -6,16 +6,16 @@
 import json
 import uuid
 import requests
+from flask import current_app
 from flask_babel import _
-from blog import app
 
 
 def translate(text, dest_language):
     """Return a translation text for a source text which will be mostly
     present in the body of a post."""
 
-    if 'MS_TRANSLATOR_KEY' not in app.config or \
-       not app.config['MS_TRANSLATOR_KEY']:
+    if 'MS_TRANSLATOR_KEY' not in current_app.config or \
+       not current_app.config['MS_TRANSLATOR_KEY']:
         return _('Error: The translation key is not configured.')
 
     base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -26,7 +26,7 @@ def translate(text, dest_language):
         'to': dest_language,
     }
     headers = {
-        'Ocp-Apim-Subscription-Key': app.config['MS_TRANSLATOR_KEY'],
+        'Ocp-Apim-Subscription-Key': current_app.config['MS_TRANSLATOR_KEY'],
         'Content-Type': 'application/json; charset=UTF-8',
         'X-ClientTraceId': str(uuid.uuid4()),
     }

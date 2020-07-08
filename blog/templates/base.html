@@ -7,7 +7,7 @@
 {% block navbar %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand mr-4" href="{{ url_for('index') }}">Blogger</a>
+    <a class="navbar-brand mr-4" href="{{ url_for('main.index') }}">Blogger</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -21,16 +21,16 @@
 
     <div id="blogger-navbar-collapse" class="collapse navbar-collapse">
       <div class="navbar-nav mr-auto">
-        <a class="nav-item nav-link" href="{{ url_for('index') }}">{{ _('Home') }}</a>
-        <a class="nav-link" href="{{ url_for('explore') }}">{{ _('Explore') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('main.index') }}">{{ _('Home') }}</a>
+        <a class="nav-link" href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
       </div>
       <div class="navbar-nav">
         {% if current_user.is_anonymous %}
-        <a class="nav-item nav-link" href="{{ url_for('login') }}">{{ _('Login') }}</a>
-        <a class="nav-item nav-link" href="{{ url_for('register') }}">{{ _('Register') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">{{ _('Register') }}</a>
         {% else %}
-	<a class="nav-item nav-link" href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a>
-        <a class="nav-item nav-link" href="{{ url_for('logout') }}">{{ _('Logout') }}</a>
+	<a class="nav-item nav-link" href="{{ url_for('main.user', username=current_user.username) }}">{{ _('Profile') }}</a>
+        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a>
 
         {% endif %}
       </div>

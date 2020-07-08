@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-02 02:42+0200\n"
+"POT-Creation-Date: 2020-07-07 23:19+0200\n"
 "PO-Revision-Date: 2020-06-18 23:15+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ar\n"
@@ -19,140 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: blog/__init__.py:32
+#: blog/__init__.py:26
 msgid "Please log in to access this page."
 msgstr "برجاء تسجيل الدخول لبلوغ الصفحة المطلوبة"
-
-#: blog/email.py:37
-msgid "[Blogger] Reset Your Password"
-msgstr "أعد تعيين كلمة السر الخاصة بك على موقع بلوجر"
-
-#: blog/forms.py:27 blog/forms.py:37 blog/forms.py:62
-msgid "Username"
-msgstr "إسم المستخدم"
-
-#: blog/forms.py:28 blog/forms.py:39 blog/forms.py:104
-msgid "Password"
-msgstr "كلمة السر"
-
-#: blog/forms.py:30
-msgid "Remember Me"
-msgstr "تذكرني"
-
-#: blog/forms.py:31 blog/routes.py:71 blog/templates/base.html:29
-#: blog/templates/login.html:6
-msgid "Login"
-msgstr "سجل الدخول"
-
-#: blog/forms.py:38 blog/forms.py:96
-msgid "Email"
-msgstr "البريد الإلكتروني"
-
-#: blog/forms.py:42 blog/forms.py:105
-msgid "Confirm Password"
-msgstr "أكد كلمة السر"
-
-#: blog/forms.py:44 blog/routes.py:94 blog/templates/base.html:30
-#: blog/templates/register.html:6
-msgid "Register"
-msgstr "تسجيل مستخدم جديد"
-
-#: blog/forms.py:50
-msgid "Please choose another username"
-msgstr "برجاء إختيار إسم مستخدم آخر"
-
-#: blog/forms.py:56
-msgid "Please choose another email address"
-msgstr "برجاء إختيار بريد إلكتروني آخر"
-
-#: blog/forms.py:63
-msgid "About Me"
-msgstr "معلوماتي عني"
-
-#: blog/forms.py:64
-msgid "Submit"
-msgstr "قم بالإرسال"
-
-#: blog/forms.py:77
-msgid "Please use a different username"
-msgstr "من فضلك إستخدم إسم مستخدم مختلف"
-
-#: blog/forms.py:87
-msgid "Create Post"
-msgstr "أنشئ مشاركة جديدة"
-
-#: blog/forms.py:89
-msgid "Post"
-msgstr "إنشر"
-
-#: blog/forms.py:97 blog/forms.py:108
-msgid "Request Password Reset"
-msgstr "طلب إعادة تعيين كلمة السر"
-
-#: blog/routes.py:41
-msgid "Your post is now live"
-msgstr "مشاركتك تم نشرها"
-
-#: blog/routes.py:50 blog/templates/base.html:24
-msgid "Home"
-msgstr "الصفحة الرئيسية"
-
-#: blog/routes.py:64
-msgid "Invalid username or password"
-msgstr "إسم المستخدم غير صحيح أو كلمة السر خاطئة"
-
-#: blog/routes.py:92
-msgid "Congratulations, you are now a registered user"
-msgstr "تهانئنا، لقد قمت بالتسجيل كمستخدم جديد بنجاح"
-
-#: blog/routes.py:132
-msgid "Your changes have been saved"
-msgstr "تم حفظ التغييرات التي قمت بها"
-
-#: blog/routes.py:137 blog/templates/edit_profile.html:6
-msgid "Edit Profile"
-msgstr "عدل الملف الشخصي"
-
-#: blog/routes.py:149 blog/routes.py:170
-#, python-format
-msgid "User %(username)s not found"
-msgstr "المستخدم %(username)s غير موجود"
-
-#: blog/routes.py:152
-msgid "You cannot follow yourself"
-msgstr "لا يمكنك متابعة نفسك"
-
-#: blog/routes.py:156
-#, python-format
-msgid "You are following %(username)s"
-msgstr "أنت الآن تتابع %(username)s"
-
-#: blog/routes.py:173
-msgid "You cannot unfollow yourself"
-msgstr "لا يمكنك ألغاء متابعة نفسك"
-
-#: blog/routes.py:177
-#, python-format
-msgid "You are not following %(username)s"
-msgstr "أنت الآن لا تتابع %(username)s"
-
-#: blog/routes.py:196 blog/templates/base.html:25
-msgid "Explore"
-msgstr "تصفح"
-
-#: blog/routes.py:212
-msgid "Check your email for instructions to reset your password."
-msgstr ""
-"قم بمراجعة الرسالة المرسلة إلى بريدك الإلكتروني و بها التعليمات الخاصة "
-"بإعادة تعيين كلمة السر الخاصة بك."
-
-#: blog/routes.py:215 blog/templates/reset_password_request.html:6
-msgid "Reset Password"
-msgstr "أعد تعيين كلمة السر"
-
-#: blog/routes.py:230
-msgid "Your password has been reset."
-msgstr "لقد تم إعادة تعيين كلمة السر الخاصة بك"
 
 #: blog/translate.py:19
 msgid "Error: The translation key is not configured."
@@ -162,21 +31,136 @@ msgstr "خطأ: المفتاح الخاص بخدمة الترجمة لم يتم 
 msgid "Error: The translation service failed."
 msgstr "خطأ: خدمة الترجمة لم تنجح"
 
-#: blog/templates/404.html:5
-msgid "File Not Found"
-msgstr "الملف غير موجود"
+#: blog/auth/email.py:17
+msgid "[Blogger] Reset Your Password"
+msgstr "أعد تعيين كلمة السر الخاصة بك على موقع بلوجر"
 
-#: blog/templates/404.html:6 blog/templates/500.html:7
-msgid "Back"
-msgstr "عودة للصفحة السابقة"
+#: blog/auth/forms.py:27 blog/auth/forms.py:37 blog/main/forms.py:24
+msgid "Username"
+msgstr "إسم المستخدم"
 
-#: blog/templates/500.html:5
-msgid "An unexpected error has occurred"
-msgstr "لقد حدث خطأ غير متوقع."
+#: blog/auth/forms.py:28 blog/auth/forms.py:39 blog/auth/forms.py:71
+msgid "Password"
+msgstr "كلمة السر"
 
-#: blog/templates/500.html:6
-msgid " The administrator has been notified. Sorry for the inconvenience. "
-msgstr "لقد تم إخطار المدير المسؤول عن الموقع. نأسف للإزعاج"
+#: blog/auth/forms.py:30
+msgid "Remember Me"
+msgstr "تذكرني"
+
+#: blog/auth/forms.py:31 blog/auth/routes.py:34
+#: blog/templates/auth/login.html:6 blog/templates/base.html:29
+msgid "Login"
+msgstr "سجل الدخول"
+
+#: blog/auth/forms.py:38 blog/auth/forms.py:63
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: blog/auth/forms.py:42 blog/auth/forms.py:72
+msgid "Confirm Password"
+msgstr "أكد كلمة السر"
+
+#: blog/auth/forms.py:44 blog/auth/routes.py:58
+#: blog/templates/auth/register.html:6 blog/templates/base.html:30
+msgid "Register"
+msgstr "تسجيل مستخدم جديد"
+
+#: blog/auth/forms.py:50
+msgid "Please choose another username"
+msgstr "برجاء إختيار إسم مستخدم آخر"
+
+#: blog/auth/forms.py:56
+msgid "Please choose another email address"
+msgstr "برجاء إختيار بريد إلكتروني آخر"
+
+#: blog/auth/forms.py:64 blog/auth/forms.py:75
+msgid "Request Password Reset"
+msgstr "طلب إعادة تعيين كلمة السر"
+
+#: blog/auth/routes.py:27
+msgid "Invalid username or password"
+msgstr "إسم المستخدم غير صحيح أو كلمة السر خاطئة"
+
+#: blog/auth/routes.py:55
+msgid "Congratulations, you are now a registered user"
+msgstr "تهانئنا، لقد قمت بالتسجيل كمستخدم جديد بنجاح"
+
+#: blog/auth/routes.py:73
+msgid "Check your email for instructions to reset your password."
+msgstr ""
+"قم بمراجعة الرسالة المرسلة إلى بريدك الإلكتروني و بها التعليمات الخاصة "
+"بإعادة تعيين كلمة السر الخاصة بك."
+
+#: blog/auth/routes.py:76 blog/templates/auth/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "أعد تعيين كلمة السر"
+
+#: blog/auth/routes.py:91
+msgid "Your password has been reset."
+msgstr "لقد تم إعادة تعيين كلمة السر الخاصة بك"
+
+#: blog/main/forms.py:25
+msgid "About Me"
+msgstr "معلوماتي عني"
+
+#: blog/main/forms.py:26
+msgid "Submit"
+msgstr "قم بالإرسال"
+
+#: blog/main/forms.py:39
+msgid "Please use a different username"
+msgstr "من فضلك إستخدم إسم مستخدم مختلف"
+
+#: blog/main/forms.py:49
+msgid "Create Post"
+msgstr "أنشئ مشاركة جديدة"
+
+#: blog/main/forms.py:51
+msgid "Post"
+msgstr "إنشر"
+
+#: blog/main/routes.py:55
+msgid "Your post is now live"
+msgstr "مشاركتك تم نشرها"
+
+#: blog/main/routes.py:64 blog/templates/base.html:24
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: blog/main/routes.py:95
+msgid "Your changes have been saved"
+msgstr "تم حفظ التغييرات التي قمت بها"
+
+#: blog/main/routes.py:100 blog/templates/edit_profile.html:6
+msgid "Edit Profile"
+msgstr "عدل الملف الشخصي"
+
+#: blog/main/routes.py:112 blog/main/routes.py:133
+#, python-format
+msgid "User %(username)s not found"
+msgstr "المستخدم %(username)s غير موجود"
+
+#: blog/main/routes.py:115
+msgid "You cannot follow yourself"
+msgstr "لا يمكنك متابعة نفسك"
+
+#: blog/main/routes.py:119
+#, python-format
+msgid "You are following %(username)s"
+msgstr "أنت الآن تتابع %(username)s"
+
+#: blog/main/routes.py:136
+msgid "You cannot unfollow yourself"
+msgstr "لا يمكنك ألغاء متابعة نفسك"
+
+#: blog/main/routes.py:140
+#, python-format
+msgid "You are not following %(username)s"
+msgstr "أنت الآن لا تتابع %(username)s"
+
+#: blog/main/routes.py:159 blog/templates/base.html:25
+msgid "Explore"
+msgstr "تصفح"
 
 #: blog/templates/_post.html:14
 #, python-format
@@ -225,22 +209,6 @@ msgstr "الأحدث"
 msgid "Older"
 msgstr "الأقدم"
 
-#: blog/templates/login.html:12
-msgid "New User?"
-msgstr "مستخدم جديد؟"
-
-#: blog/templates/login.html:12
-msgid "Click to Register"
-msgstr "انقر لتسجيل كمستخدم جديد"
-
-#: blog/templates/login.html:14
-msgid "Forgot Your Password?"
-msgstr "أنسيت كلمة السر الخاصة بك؟"
-
-#: blog/templates/login.html:15
-msgid "Click to Reset"
-msgstr "انقر لإعادة تعيين كلمة السر"
-
 #: blog/templates/user.html:10
 msgid "User"
 msgstr "المستخدم"
@@ -270,4 +238,36 @@ msgstr "تابع"
 #: blog/templates/user.html:32
 msgid "unfollow"
 msgstr "إلغ متابعة"
+
+#: blog/templates/auth/login.html:12
+msgid "New User?"
+msgstr "مستخدم جديد؟"
+
+#: blog/templates/auth/login.html:12
+msgid "Click to Register"
+msgstr "انقر لتسجيل كمستخدم جديد"
+
+#: blog/templates/auth/login.html:14
+msgid "Forgot Your Password?"
+msgstr "أنسيت كلمة السر الخاصة بك؟"
+
+#: blog/templates/auth/login.html:15
+msgid "Click to Reset"
+msgstr "انقر لإعادة تعيين كلمة السر"
+
+#: blog/templates/errors/404.html:5
+msgid "File Not Found"
+msgstr "الملف غير موجود"
+
+#: blog/templates/errors/404.html:6 blog/templates/errors/500.html:7
+msgid "Back"
+msgstr "عودة للصفحة السابقة"
+
+#: blog/templates/errors/500.html:5
+msgid "An unexpected error has occurred"
+msgstr "لقد حدث خطأ غير متوقع."
+
+#: blog/templates/errors/500.html:6
+msgid " The administrator has been notified. Sorry for the inconvenience. "
+msgstr "لقد تم إخطار المدير المسؤول عن الموقع. نأسف للإزعاج"
 
