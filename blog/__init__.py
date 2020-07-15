@@ -14,6 +14,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
+from elasticsearch import Elasticsearch
 from config import Config
 
 # Initialize Database and migrations extensions
@@ -66,6 +67,10 @@ def create_app(config_class=Config):
 
     # Register Flask-Babel with the application factory
     babel.init_app(app)
+
+    # Register Elasticasearch with the application factory
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+        if app.config['ELASTICSEARCH_URL'] else None
 
     # Register different blueprints with the application factory
     from blog.main import bp as main_bp

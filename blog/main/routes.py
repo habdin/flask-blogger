@@ -22,6 +22,7 @@ from blog.main.forms import (
     EditUserProfileForm,
     EmptyForm,
     PostForm,
+    SearchForm,
 )
 from blog.models import User, Post
 from blog.translate import translate
@@ -35,6 +36,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+        g.search_form = SearchForm()
     g.locale = str(get_locale())
 
 
@@ -170,3 +172,20 @@ def translate_text():
     """
     return jsonify({'text': translate(request.form['text'],
                                       request.form['dest_language'])})
+
+
+@bp.route('/search', methods=['GET'])
+@login_required
+def search():
+    """View function for full-text search queries"""
+    if not g.search_form.validate():
+        return redirect(url_for('main.explore'))
+    page = request.args.get('page', 1, type=int)
+    posts, total = Post.search(g.search_form.q.data, page,
+                               current_app.config['POSTS_PER_PAGE'])
+    next_url = url_for('main.search', q=g.search_form.data, page=page + 1) \
+        if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    prev_url = url_for('main.search', q=g.search_form.data, page=page - 1) \
+        if page > 1 else None
+    return render_template('search.html', title=_("Search"), posts=posts,
+                           next_url=next_url, prev_url=prev_url)

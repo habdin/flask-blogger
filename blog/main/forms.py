@@ -4,6 +4,7 @@
 """Defines classes and fields for forms not related to authentication
 within the Blogger App."""
 
+from flask import request
 from flask_wtf import FlaskForm
 from flask_babel import _, lazy_gettext as _l
 from wtforms import (
@@ -17,6 +18,22 @@ from wtforms.validators import (
     ValidationError,
     )
 from blog.models import User
+
+
+class SearchForm(FlaskForm):
+    """Class that defines the search form field and associated methods."""
+    q = StringField(_l('Search'), validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        """
+        Init constructor that defines the formdata kwargs and specifically
+        disables csrf kwarg.
+        """
+        if 'formdata' not in kwargs:
+            kwargs['formdata'] = request.args
+        if 'csrf_enabled' not in kwargs:
+            kwargs['csrf_enabled'] = False
+        super(SearchForm, self).__init__(*args, **kwargs)        
 
 
 class EditUserProfileForm(FlaskForm):

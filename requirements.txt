@@ -9,6 +9,7 @@ Click==7.0
 decorator==4.4.1
 dnspython==1.16.0
 dominate==2.4.0
+elasticsearch==7.8.0
 email-validator==1.1.0
 entrypoints==0.3
 flake8==3.7.9

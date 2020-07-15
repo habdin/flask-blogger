@@ -24,6 +24,14 @@
         <a class="nav-item nav-link" href="{{ url_for('main.index') }}">{{ _('Home') }}</a>
         <a class="nav-link" href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a>
       </div>
+      {% if g.search_form %}
+      <form action="{{ url_for('main.search')  }}" }}" class="form-inline my-2 my-lg-0 mr-3" method="get">
+	<div class="form-group">
+	  {{ g.search_form.q(size=20, class='form-control',
+	  placeholder=g.search_form.q.label.text) }}
+	</div>
+      </form>
+      {% endif %}
       <div class="navbar-nav">
         {% if current_user.is_anonymous %}
         <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">{{ _('Login') }}</a>

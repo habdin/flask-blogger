@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
+
 class Config(object):
     """Define settings and variables for various Blogger App extensions"""
 
@@ -32,6 +33,9 @@ class Config(object):
 
     # Localization and Internationalization
     LANGUAGES = ['en', 'ar']
-    
+
     # MS Translator azure service key
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+
+    # Elasticsearch service configuration
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
