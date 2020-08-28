@@ -68,3 +68,12 @@ class PostForm(FlaskForm):
     post = TextAreaField(_l('Create Post'),
                          validators=[DataRequired(), Length(min=1, max=140)])
     submit = SubmitField(_l('Post'))
+
+
+class MessageForm(FlaskForm):
+    """Class that defines fields for sending message from a registered user to
+    another within the blogger flask web app.
+    """
+    message = TextAreaField(_('Message'), validators=[
+        DataRequired(), Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))

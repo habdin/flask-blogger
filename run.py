@@ -4,7 +4,7 @@
 """Blogger Flask App runner module"""
 
 from blog import create_app, db, cli
-from blog.models import User, Post
+from blog.models import User, Post, Notification, Message
 
 
 app = create_app()
@@ -18,4 +18,6 @@ def make_shell_context():
         'db': db,
         'User': User,
         'Post': Post,
+        'Message': Message,
+        'Notification': Notification,
     }
